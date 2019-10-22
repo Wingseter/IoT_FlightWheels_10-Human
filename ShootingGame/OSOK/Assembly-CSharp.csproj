@@ -60,8 +60,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Bullet.cs" />
     <Compile Include="Assets\FollowCam.cs" />
     <Compile Include="Assets\PlayerController.cs" />
+    <Compile Include="Assets\Starfield Skybox\Demo\Script\LookCamera.cs" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>C:/Users/Admin/Desktop/WorkSpace/OSOK/ShootingGame/OSOK/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
