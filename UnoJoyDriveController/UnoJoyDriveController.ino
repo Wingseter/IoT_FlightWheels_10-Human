@@ -50,6 +50,17 @@ dataForController_t getControllerData(void){
   controllerData.selectOn = !digitalRead(12);
   controllerData.startOn = !digitalRead(A4);
   controllerData.homeOn = !digitalRead(A5);
+
+  // mapping the y value in to 0~1023;
+  int mapping;
+
+  mapping = (analogRead(A1) - 490) * 14;
+  if(mapping < 0){
+    mapping = 0;
+  }
+  else if(mapping > 1023){
+    mapping = 1023;
+  }
   
   // Set the analog sticks
   //  Since analogRead(pin) returns a 10 bit value,
@@ -57,7 +68,7 @@ dataForController_t getControllerData(void){
   //  lose the 2 least significant bits and get an
   //  8 bit number that we can use  
   controllerData.leftStickX = analogRead(A0) >> 2;
-  controllerData.leftStickY = analogRead(A1) >> 2;
+  controllerData.leftStickY = mapping >> 2;
   controllerData.rightStickX = analogRead(A2) >> 2;
   controllerData.rightStickY = analogRead(A3) >> 2;
   // And return the data!
